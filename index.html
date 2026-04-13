@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Бобоев Абдулфаез Амирханович</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #1a1a1a;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    /* ШАПКА */
+    header {
+      background: #222222;
+      border-bottom: 1px solid #333;
+      padding: 28px 20px 24px;
+    }
+
+    .header-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .header-tag {
+      font-size: 0.75rem;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      font-size: 1.7rem;
+      color: #ffffff;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .header-desc {
+      font-size: 0.95rem;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .header-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* КАРТОЧКИ-ОГЛАВЛЕНИЕ */
+    .toc-section {
+      background: #222;
+      border-bottom: 1px solid #333;
+      padding: 20px;
+    }
+
+    .toc-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .toc-title {
+      font-size: 0.75rem;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #2e2e2e;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .toc-list li:last-child { border-bottom: none; }
+
+    .toc-list li:hover { color: #ffffff; }
+
+    .toc-num {
+      font-size: 0.85rem;
+      color: #555;
+      min-width: 20px;
+    }
+
+    .toc-list a {
+      font-size: 0.95rem;
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .toc-list a:hover { color: #fff; }
+
+    /* ОСНОВНОЙ КОНТЕНТ */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* КАРТОЧКА */
+    .card {
+      background: #2a2a2a;
+      border-radius: 4px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .card-number {
+      width: 40px;
+      height: 40px;
+      background: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 24px 0 14px;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .card-body {
+      padding: 20px 22px;
+    }
+
+    /* ТАБЛИЦА ДАННЫХ */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .data-table tr {
+      border-bottom: 1px solid #333;
+    }
+
+    .data-table tr:last-child { border-bottom: none; }
+
+    .data-table td {
+      padding: 12px 0;
+      font-size: 0.95rem;
+      vertical-align: top;
+    }
+
+    .data-table td:first-child {
+      color: #888;
+      width: 40%;
+      padding-right: 16px;
+    }
+
+    .data-table td:last-child {
+      color: #e0e0e0;
+      font-weight: 500;
+    }
+
+    /* ТЕКСТ */
+    .card-text {
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.8;
+    }
+
+    /* ТАЙМЛАЙН */
+    .timeline-list {
+      list-style: none;
+    }
+
+    .tl-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .tl-item:last-child { border-bottom: none; }
+
+    .tl-year {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #888;
+      min-width: 80px;
+      padding-top: 2px;
+      letter-spacing: 1px;
+    }
+
+    .tl-content h4 {
+      font-size: 0.95rem;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .tl-content p {
+      font-size: 0.88rem;
+      color: #999;
+      line-height: 1.65;
+    }
+
+    /* НАГРАДЫ */
+    .award-list {
+      list-style: none;
+    }
+
+    .award-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .award-item:last-child { border-bottom: none; }
+
+    .award-emoji { font-size: 1.8rem; flex-shrink: 0; }
+
+    .award-text h4 {
+      font-size: 0.95rem;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .award-text p {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.5;
+    }
+
+    /* СПОРТ */
+    .sport-list {
+      list-style: none;
+    }
+
+    .sport-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .sport-item:last-child { border-bottom: none; }
+
+    .sport-medal-big { font-size: 2.2rem; flex-shrink: 0; }
+
+    .sport-info h4 {
+      font-size: 0.95rem;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .sport-info p {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    /* ФОТО */
+    .photo-placeholder-card {
+      background: #333;
+      border-radius: 4px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    /* ПРОФИЛЬ ШАПКА */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 22px;
+      border-bottom: 1px solid #333;
+    }
+
+    .profile-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .profile-name h2 {
+      font-size: 1.05rem;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .profile-name p {
+      font-size: 0.82rem;
+      color: #888;
+    }
+
+    /* ФУТЕР */
+    footer {
+      background: #222;
+      border-top: 1px solid #333;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.82rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.3rem; }
+      .tl-year { min-width: 60px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header>
+  <div class="header-inner">
+    <div class="header-tag">Биография · Военная карьера</div>
+    <h1>Бобоев Абдулфаез Амирханович</h1>
+    <p class="header-desc">
+      Полковник ФСБ Российской Федерации, ветеран боевых действий. На протяжении почти трёх десятилетий проходил службу в силовых структурах России и Таджикистана. Биография — в материале.
+    </p>
+    <div class="header-meta">
+      <span>📅 08.02.1978</span>
+      <span>📍 г. Душанбе, Таджикская ССР</span>
+    </div>
+  </div>
+</header>
+
+<!-- ОГЛАВЛЕНИЕ -->
+<div class="toc-section">
+  <div class="toc-inner">
+    <div class="toc-title">8 карточек</div>
+    <ul class="toc-list">
+      <li><span class="toc-num">1.</span><a href="#card1">Важная информация о Бобоеве А.А.</a></li>
+      <li><span class="toc-num">2.</span><a href="#card2">Детство и семья</a></li>
+      <li><span class="toc-num">3.</span><a href="#card3">Военная карьера</a></li>
+      <li><span class="toc-num">4.</span><a href="#card4">Государственные награды</a></li>
+      <li><span class="toc-num">5.</span><a href="#card5">Спортивные достижения</a></li>
+      <li><span class="toc-num">6.</span><a href="#card6">Образование</a></li>
+      <li><span class="toc-num">7.</span><a href="#card7">Фотогалерея</a></li>
+    </ul>
+  </div>
+</div>
+
+<main>
+
+  <!-- КАРТОЧКА 1 — ДАННЫЕ -->
+  <div class="card-number" id="card1">1</div>
+  <h2 class="card-title">Важная информация о Бобоеве А.А.</h2>
+  <div class="card">
+    <div class="profile-header">
+      <div class="profile-avatar">🎖️</div>
+      <div class="profile-name">
+        <h2>Бобоев Абдулфаез Амирханович</h2>
+        <p>Полковник ФСБ РФ · Ветеран боевых действий</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="data-table">
+        <tr><td>Полное имя</td><td>Бобоев Абдулфаез Амирханович</td></tr>
+        <tr><td>Дата рождения</td><td>08 февраля 1978 г.</td></tr>
+        <tr><td>Место рождения</td><td>г. Душанбе, Таджикская ССР</td></tr>
+        <tr><td>Звание</td><td>Полковник ФСБ РФ</td></tr>
+        <tr><td>Статус</td><td>Ветеран боевых действий</td></tr>
+        <tr><td>На пенсии с</td><td>2023 г.</td></tr>
+        <tr><td>Текущая должность</td><td>Специальный корреспондент, редакция «Главные события», Москва</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- КАРТОЧКА 2 — ДЕТСТВО -->
+  <div class="card-number" id="card2">2</div>
+  <h2 class="card-title">Детство и семья</h2>
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">
+        Абдулфаез Амирханович Бобоев родился 8 февраля 1978 года в городе Душанбе, Таджикская ССР. В семье, где оба родителя работали в государственных структурах: мама трудилась судьёй Таджикской ССР в Душанбе, отец был сотрудником военной прокуратуры Республики Таджикистан (г. Куляб).
+        <br/><br/>
+        Учился в средней школе №50 (с первого класса). Затем с 2-го по 8-й классы проходил обучение в средней школе №91. После распада СССР поступил в медицинское училище в Душанбе и окончил его с красным дипломом.
+      </p>
+    </div>
+  </div>
+
+  <!-- КАРТОЧКА 3 — КАРЬЕРА -->
+  <div class="card-number" id="card3">3</div>
+  <h2 class="card-title">Военная карьера</h2>
+  <div class="card">
+    <div class="card-body">
+      <ul class="timeline-list">
+        <li class="tl-item">
+          <span class="tl-year">1996</span>
+          <div class="tl-content">
+            <h4>ФПС РФ · В/ч 2033 · ДШБ</h4>
+            <p>На добровольной основе вступил в федеральную пограничную службу РФ на территории Республики Таджикистан. После принятия присяги зачислен в ДШБ ФПС РФ. Был направлен на 12-ю заставу заместителем командира ДШБ, осуществлял контроль за пограничным гарнизоном. В ходе службы получил огнестрельное тяжёлое ранение.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">После ранения</span>
+          <div class="tl-content">
+            <h4>Командир взвода · В/ч 2528</h4>
+            <p>После госпитализации назначен командиром взвода обеспечения охраны в/ч 2528, сопровождал медицинских работников и членов семей. За заслуги награждён медалью Мужества.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2000</span>
+          <div class="tl-content">
+            <h4>201-я МСД · Разведывательная рота</h4>
+            <p>Поступил на контрактную службу в 201-ю МСД, служил в разведывательном подразделении, зарекомендовал себя с положительной стороны. Направлен на повышение квалификации в Высшую военную школу им. Хрулёва (г. Санкт-Петербург).</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2001</span>
+          <div class="tl-content">
+            <h4>Звание — Младший лейтенант</h4>
+            <p>По окончании Высшей военной школы им. Хрулёва присвоено воинское звание младший лейтенант.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2002</span>
+          <div class="tl-content">
+            <h4>Звание — Старший лейтенант</h4>
+            <p>По приказу МО РФ награждён медалью «Железный крест» за доблесть и отвагу. Присвоено звание старшего лейтенанта.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2003</span>
+          <div class="tl-content">
+            <h4>Спецшкола ФСБ · Москва</h4>
+            <p>Направлен в специальную военную диверсионную школу ФСБ России для повышения квалификации.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2004</span>
+          <div class="tl-content">
+            <h4>ФСБ России · Москва</h4>
+            <p>Направлен в Ростовскую область, г. Волгодонск. В конце 2004 года переведён на постоянное место работы в Москву, на Большую Лубянку. В период службы получил звание полковника ФСБ РФ, считался одним из наиболее ценных сотрудников и наставником по профессиональной деятельности.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2023</span>
+          <div class="tl-content">
+            <h4>Выход на пенсию</h4>
+            <p>Вышел на заслуженную пенсию. Ветеран боевых действий.</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2023 — н.в.</span>
+          <div class="tl-content">
+            <h4>Специальный корреспондент · «Главные события» · Москва</h4>
+            <p>С 2023 года работает в должности специального корреспондента в редакции «Главные события» в Москве.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- КАРТОЧКА 4 — НАГРАДЫ -->
+  <div class="card-number" id="card4">4</div>
+  <h2 class="card-title">Государственные награды</h2>
+  <div class="card">
+    <div class="card-body">
+      <ul class="award-list">
+        <li class="award-item">
+          <div class="award-text">
+            <h4>Медаль «За мужество»</h4>
+            <p>За доблестную службу на 12-й пограничной заставе и тяжёлое ранение в ходе выполнения боевого задания</p>
+          </div>
+        </li>
+        <li class="award-item">
+          <div class="award-text">
+            <h4>Медаль «Железный крест»</h4>
+            <p>За доблесть и отвагу. Приказ Министерства обороны РФ, 2002 г.</p>
+          </div>
+        </li>
+        <li class="award-item">
+          <div class="award-text">
+            <h4>Полковник ФСБ РФ</h4>
+            <p>Высшее воинское звание, полученное в период службы в ФСБ России</p>
+          </div>
+        </li>
+        <li class="award-item">
+          <div class="award-text">
+            <h4>Ветеран боевых действий</h4>
+            <p>Официальный статус, подтверждающий участие в боевых операциях</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- КАРТОЧКА 5 — СПОРТ -->
+  <div class="card-number" id="card5">5</div>
+  <h2 class="card-title">Спортивные достижения</h2>
+  <div class="card">
+    <div class="card-body">
+      <ul class="sport-list">
+        <li class="sport-item">
+          <span class="sport-medal-big">🥇</span>
+          <div class="sport-info">
+            <h4>I место по боевому рукопашному бою</h4>
+            <p>Военные соревнования · г. Алматы, 2000 г. · Золотая медаль</p>
+          </div>
+        </li>
+        <li class="sport-item">
+          <span class="sport-medal-big">🥈</span>
+          <div class="sport-info">
+            <h4>II место по вольной борьбе (средний вес)</h4>
+            <p>Международные соревнования · Стамбул, Турция, 2004 г. · Серебряная медаль</p>
+          </div>
+        </li>
+        <li class="sport-item">
+          <span class="sport-medal-big">🥇</span>
+          <div class="sport-info">
+            <h4>I место по вольной борьбе среди ветеранов ФПС РФ</h4>
+            <p>Ветеранские соревнования · Стамбул, Турция, 2024 г. · Золотая медаль</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- КАРТОЧКА 6 — ОБРАЗОВАНИЕ -->
+  <div class="card-number" id="card6">6</div>
+  <h2 class="card-title">Образование</h2>
+  <div class="card">
+    <div class="card-body">
+      <table class="data-table">
+        <tr><td>Школа №50</td><td>1-й класс, г. Душанбе</td></tr>
+        <tr><td>Школа №91</td><td>2–8-й классы, г. Душанбе</td></tr>
+        <tr><td>Медицинское училище</td><td>Красный диплом, г. Душанбе</td></tr>
+        <tr><td>ВВШ им. Хрулёва</td><td>г. Санкт-Петербург, 2000–2001 гг.</td></tr>
+        <tr><td>Спецшкола ФСБ</td><td>г. Москва, 2003 г.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- КАРТОЧКА 7 — ФОТО -->
+  <div class="card-number" id="card7">7</div>
+  <h2 class="card-title">Фотогалерея</h2>
+  <div class="card">
+    <div class="card-body">
+      <div class="photo-placeholder-card">📷 Фото будет добавлено</div>
+      <div class="gallery-grid">
+        <div class="photo-placeholder-card" style="height:140px; font-size:0.8rem;">📷 Фото 2</div>
+        <div class="photo-placeholder-card" style="height:140px; font-size:0.8rem;">📷 Фото 3</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Бобоев Абдулфаез Амирханович · Полковник ФСБ РФ · Ветеран боевых действий
+</footer>
+
+</body>
+</html>
