@@ -3,7 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Бобоев Абдулфаез Амирханович</title>
+  <title>Бобоев Абдулфаез Амирханович — Полковник ФСБ РФ, ветеран боевых действий</title>
+  <meta name="description" content="Бобоев Абдулфаез Амирханович — полковник ФСБ Российской Федерации, ветеран боевых действий. Родился 08 февраля 1978 года в г. Душанбе. Биография, военная карьера, награды и спортивные достижения." />
+  <meta name="keywords" content="Бобоев Абдулфаез Амирханович, полковник ФСБ, ветеран боевых действий, Душанбе, биография" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Бобоев Абдулфаез Амирханович",
+    "birthDate": "1978-02-08",
+    "birthPlace": {
+      "@type": "Place",
+      "name": "Душанбе, Таджикская ССР"
+    },
+    "nationality": "Российская Федерация",
+    "jobTitle": "Специальный корреспондент",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Редакция «Главные события»"
+    },
+    "description": "Полковник ФСБ Российской Федерации, ветеран боевых действий. На протяжении почти трёх десятилетий проходил службу в силовых структурах России и Таджикистана.",
+    "award": [
+      "Медаль «За мужество»",
+      "Медаль «Железный крест»",
+      "Золотая медаль по боевому рукопашному бою, Алматы 2000",
+      "Серебряная медаль по вольной борьбе, Стамбул 2004",
+      "Золотая медаль по вольной борьбе среди ветеранов ФПС РФ, Стамбул 2024"
+    ],
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Медицинское училище г. Душанбе"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Высшая военная школа им. Хрулёва, Санкт-Петербург"
+      }
+    ]
+  }
+  </script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -353,9 +391,57 @@
       header h1 { font-size: 1.3rem; }
       .tl-year { min-width: 60px; font-size: 0.75rem; }
     }
+
+    /* ЛАЙТБОКС */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 95vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 10000;
+      line-height: 1;
+    }
+
+    .gallery-grid img, .card-body > img {
+      cursor: zoom-in;
+      transition: opacity 0.2s;
+    }
+
+    .gallery-grid img:hover, .card-body > img:hover {
+      opacity: 0.85;
+    }
   </style>
 </head>
 <body>
+
+<!-- ЛАЙТБОКС -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightbox-img" src="" />
+</div>
 
 <!-- ШАПКА -->
 <header>
@@ -363,7 +449,7 @@
     <div class="header-tag">Биография · Военная карьера</div>
     <h1>Бобоев Абдулфаез Амирханович</h1>
     <p class="header-desc">
-      Полковник ФСБ Российской Федерации, ветеран боевых действий. На протяжении почти трёх десятилетий проходил службу в силовых структурах России и Таджикистана. Биография — в материале.
+      Полковник ФСБ Российской Федерации, ветеран боевых действий. Командир взвода обеспечения охраны (взвод охраны госпиталя и медицинских работников). На протяжении почти трёх десятилетий проходил службу в силовых структурах России и Таджикистана. Биография — в материале.
     </p>
     <div class="header-meta">
       <span>📅 08.02.1978</span>
@@ -585,10 +671,14 @@
   <h2 class="card-title">Фотогалерея</h2>
   <div class="card">
     <div class="card-body">
-      <div class="photo-placeholder-card">📷 Фото будет добавлено</div>
+      <img src="photos/photo1.jpeg" onclick="openLightbox(this)" style="width:100%;border-radius:4px;margin-bottom:8px;object-fit:cover;max-height:400px;cursor:zoom-in;" />
       <div class="gallery-grid">
-        <div class="photo-placeholder-card" style="height:140px; font-size:0.8rem;">📷 Фото 2</div>
-        <div class="photo-placeholder-card" style="height:140px; font-size:0.8rem;">📷 Фото 3</div>
+        <img src="photos/photo2.jpeg" onclick="openLightbox(this)" style="width:100%;border-radius:4px;object-fit:cover;height:180px;cursor:zoom-in;" />
+        <img src="photos/photo3.jpeg" onclick="openLightbox(this)" style="width:100%;border-radius:4px;object-fit:cover;height:180px;cursor:zoom-in;" />
+        <img src="photos/photo4.jpeg" onclick="openLightbox(this)" style="width:100%;border-radius:4px;object-fit:cover;height:180px;cursor:zoom-in;" />
+        <img src="photos/photo5.jpeg" onclick="openLightbox(this)" style="width:100%;border-radius:4px;object-fit:cover;height:180px;cursor:zoom-in;" />
+        <img src="photos/photo6.jpeg" onclick="openLightbox(this)" style="width:100%;border-radius:4px;object-fit:cover;height:180px;cursor:zoom-in;" />
+        <img src="photos/photo7.jpeg" onclick="openLightbox(this)" style="width:100%;border-radius:4px;object-fit:cover;height:180px;cursor:zoom-in;" />
       </div>
     </div>
   </div>
@@ -599,5 +689,19 @@
   Бобоев Абдулфаез Амирханович · Полковник ФСБ РФ · Ветеран боевых действий
 </footer>
 
+<script>
+  function openLightbox(img) {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 </body>
 </html>
